@@ -1,0 +1,353 @@
+body, .main-content {
+  padding-bottom: 50px; /* Adjust if your footer is taller */
+  
+}
+
+.user-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  
+}
+
+/* Card for each user */
+.user-card {
+  /* background: #ede8f5 !important; */
+  background: #f9f9f9 !important;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 50px;
+  /* margin-bottom: 32px; */
+  padding-left: 45px;
+}
+
+/* User content divided into two sections */
+.user-content {
+  display: flex;
+
+  flex-direction: row;
+
+  gap: 20px;
+
+
+}
+
+/* Left section for profile info */
+/* .left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+} */
+.left-section {
+  flex: 1 1 0;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.left-section h3 {
+  text-align: center;
+  width: 100%;
+  margin-top: 1%;
+  margin-bottom: 5px;
+  font-weight: 550;
+  font-size: 1.1em;
+  color: #c62e2e;
+}
+
+mat-tab-group {
+  width: 100%; /* Make tab group fill the left section */
+  font-size: 1.1rem;
+}
+
+
+.profile-picture {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  /* flex-shrink: 0; */
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: row; /* Stack vertically */
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 32px;
+  
+}
+
+/* .profile-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+} */
+
+.profile-pic-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.profile-info {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+
+.profile-info h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.profile-info p {
+  margin: 0;
+  color: #666;
+  font-size: 1.1em;
+}
+
+.left-section h2 {
+  margin: 10px 0 5px;
+  font-size: 1.5rem;
+  font-weight: 550;
+  color: #333;
+}
+
+.left-section p {
+  margin: 0;
+  font-weight: 550;
+  color: #5a9908;
+}
+
+/* Style for Update and Cancel buttons when editing a fact */
+.update-fact-btn {
+  background: #5a871e;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 16px;
+  margin-left: 8px;
+  font-weight: 600;
+  font-size: 0.98em;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(90, 135, 33, 0.08);
+}
+
+.update-fact-btn:hover {
+  background: #8ccd3d;
+}
+
+.cancel-fact-btn {
+  background: #e0e0e0;
+  color: #c62e2e;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 14px;
+  margin-left: 6px;
+  font-weight: 600;
+  font-size: 0.98em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cancel-fact-btn:hover {
+  background: #f8d7da;
+  color: #a71d2a;
+}
+
+.edit-fact-input {
+  margin-left: 8px;
+  padding: 4px 8px;
+  border: 2px solid #5a8721;
+  border-radius: 4px;
+  outline: none;
+  font-size: 1em;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.edit-fact-input:focus {
+  border-color: #49701a;
+  box-shadow: 0 0 0 2px #e0f3c6;
+}
+
+/* Right section for gallery carousel */
+/* .right-section {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+} */
+.right-section {
+  flex: 1 1 0;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* .carousel {
+  margin-top: 10px;
+  overflow: hidden;
+  position: relative;
+
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+} */
+.carousel {
+  margin-top: 10px;
+  overflow: visible; /* Allow dots to show outside the carousel */
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 40px; /* Add space for dots */
+}
+
+.carousel-item {
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px; 
+}
+
+.carousel-image {
+  max-width: 100%; /* Ensure the image does not exceed the container width */
+  max-height: 100%; /* Ensure the image does not exceed the container height */
+  object-fit: cover; /* Maintain aspect ratio and fill the container */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.slick-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  display: flex !important;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: auto;
+  background: transparent;
+}
+
+.slick-dots li button:before {
+  font-size: 16px;
+  color: #333;
+  opacity: 1;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #007bff;
+  opacity: 1;
+}
+
+.facts-list {
+  margin-top: 24px; /* Space between profile and facts */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.fact-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* .fact-item {
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 8px 14px;
+  color: #444;
+  font-size: 1em;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  width: 100%;
+  box-sizing: border-box;
+} */
+.fact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  /* background: #61892f; */
+  background: #dbdcd9;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+.add-fact-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.add-fact-input {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.add-fact-btn {
+  padding: 6px 18px;
+  background: #86c232;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-fact-btn:hover {
+  background: #77b126;
+}
+
+/* Add to user-list.component.css */
+.edit-fact-input {
+  margin-left: 8px;
+  padding: 2px 6px;
+}
+
+.edit-fact-btn, .update-fact-btn, .cancel-fact-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 2px;
+  transition: background 0.2s;
+}
+
+.update-fact-btn, .cancel-fact-btn{
+  background: #ececec;
+  padding: 4px;
+}
+
+.edit-fact-btn:hover {
+  background: #ececec;
+  border-radius: 4px;
+}

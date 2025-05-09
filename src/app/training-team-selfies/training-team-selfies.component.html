@@ -1,0 +1,10 @@
+<div class="selfie-carousel-container">
+  <h2 class="main-title">Training Team Selfies</h2>
+    <ngx-slick-carousel class="carousel" [config]="carouselConfig">
+      <div ngxSlickItem *ngFor="let selfie of selfies" class="carousel-item">
+        <img [src]="'https://localhost:7085' + selfie.imageUrl" alt="Training Selfie" class="carousel-image" />
+        <div class="team-member-name">{{ selfie.personName }}</div>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+

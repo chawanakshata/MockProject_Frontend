@@ -1,0 +1,37 @@
+# dependencies
+node_modules/
+bower_components/
+
+# build
+dist/
+tmp/
+out-tsc/
+out-tsc-e2e/
+
+# misc
+.DS_Store
+Thumbs.db
+*.log
+
+# IDEs and editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Angular specific
+.angular/
+.angular/cache/
+.angular/cache/babel-webpack/
+.angular/cache/webpack/
+.angular/cache/ngcc/
+.angular/cache/tsconfig/
+.angular/cache/typescript/
+.angular/cache/webpack/
+.angular/cache/babel-webpack/
+.angular/cache/ngcc/
+.angular/cache/tsconfig/
+.angular/cache/typescript/

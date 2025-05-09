@@ -1,0 +1,163 @@
+ <!-- <h2 class="main-title">Takeda Team</h2> 
+ <div class="add-photo-container">
+  <p class="content">Add Team Selfie:</p>
+  <input type="text" [(ngModel)]="teamMemberName" placeholder="Enter Team Member's Name" class="name-input" />
+  <button class="add-photo-btn" (click)="fileInput.click()">Add Photo</button>
+  <input #fileInput type="file" accept="image/*" style="display:none" (change)="onFileSelected($event)" />
+</div> 
+
+   <div class="selfie-carousel-container">
+    <ngx-slick-carousel class="carousel" [config]="carouselConfig" (afterChange)="onCarouselAfterChange($event)">
+      <div ngxSlickItem *ngFor="let selfie of selfies" class="carousel-item">
+        <img [src]="'https://localhost:7085' + selfie.imageUrl" alt="Team Selfie" class="carousel-image" />
+        <div class="team-member-name">
+          {{ selfie.teamMemberName }}<span *ngIf="selfie.designation"> - {{ selfie.designation }}</span>
+        </div>      
+      </div>
+    </ngx-slick-carousel>
+    <button
+      *ngIf="selfies.length"
+      class="delete-btn"
+      (click)="deleteSelfie(selfies[currentSlide]?.id)">
+      Delete Photo
+    </button>
+  </div> -->
+
+<!-- ================================= -->
+
+  <!-- <h2 class="main-title">Takeda Team</h2>
+
+<div class="add-photo-container">
+  <input
+    type="text"
+    [(ngModel)]="teamMemberName"
+    placeholder="Enter Team Member's Name"
+    class="name-input"
+  />
+  <input
+    type="text"
+    [(ngModel)]="designation"
+    placeholder="Enter Designation"
+    class="designation-input"
+  />
+  <input
+    #fileInput
+    type="file"
+    accept="image/*"
+    style="display:none"
+    (change)="onFileSelected($event)"
+  />
+  <button class="choose-file-btn" (click)="fileInput.click()" type="button">
+    Choose File
+  </button>
+
+  <span *ngIf="selectedFileName" class="file-name">{{ selectedFileName }}</span>
+
+  <button
+  class="add-photo-btn"
+  [disabled]="!selectedFile || !teamMemberName.trim() || !designation.trim()"
+  (click)="addSelfie()"
+  >
+  Add Photo
+</button>
+</div>
+
+<div class="selfie-carousel-container">
+  <ngx-slick-carousel
+    class="carousel"
+    [config]="carouselConfig"
+    (afterChange)="onCarouselAfterChange($event)"
+  >
+    <div ngxSlickItem *ngFor="let selfie of selfies" class="carousel-item">
+      <img
+        [src]="'https://localhost:7085' + selfie.imageUrl"
+        alt="Team Selfie"
+        class="carousel-image"
+      />
+      <div class="team-member-name">
+        {{ selfie.teamMemberName
+        }}<span *ngIf="selfie.designation"> - {{ selfie.designation }}</span>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+  <button
+    *ngIf="selfies.length"
+    class="delete-btn"
+    (click)="deleteSelfie(selfies[currentSlide]?.id)"
+  >
+    Delete Photo
+  </button>
+</div> -->
+
+<!-- ======================== -->
+
+<h2 class="main-title">Takeda Team</h2>
+
+<div class="add-photo-container">
+  <p class="sub-title">Add Team Member :</p>
+  <input
+    type="text"
+    [(ngModel)]="teamMemberName"
+    placeholder="Enter Team Member's Name"
+    class="name-input"
+  />
+  <!-- <input
+    type="text"
+    [(ngModel)]="designation"
+    placeholder="Enter Designation"
+    class="designation-input"
+  /> -->
+  <input
+    #fileInput
+    type="file"
+    accept="image/*"
+    style="display:none"
+    (change)="onFileSelected($event)"
+  />
+  <button
+    class="choose-file-btn"
+    (click)="fileInput.click()"
+    type="button"
+  >
+    Choose File
+  </button>
+  <span *ngIf="selectedFileName" class="file-name">{{ selectedFileName }}</span>
+  <button
+    class="add-photo-btn"
+    [disabled]="!selectedFile || !teamMemberName.trim()"
+    
+    (click)="addSelfie()"
+  >
+    Add Photo
+  </button>
+</div>
+
+<div class="selfie-carousel-container">
+  <ngx-slick-carousel
+    class="carousel"
+    [config]="carouselConfig"
+    (afterChange)="onCarouselAfterChange($event)"
+  >
+    <div ngxSlickItem *ngFor="let selfie of selfies" class="carousel-item">
+      <img
+        [src]="'https://localhost:7085' + selfie.imageUrl"
+        alt="Team Selfie"
+        class="carousel-image"
+      />
+      <div class="team-member-name">
+        {{ selfie.teamMemberName
+        }}
+        <!-- <span *ngIf="selfie.designation"> - {{ selfie.designation }}</span> -->
+      </div>
+    </div>
+  </ngx-slick-carousel>
+  <button
+    *ngIf="selfies.length"
+    class="delete-btn"
+    (click)="deleteSelfie(selfies[currentSlide]?.id)"
+  >
+    Delete Photo
+  </button>
+</div>
+
+

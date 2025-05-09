@@ -1,0 +1,12 @@
+<!-- <p>training-selfies works!</p> -->
+
+<div class="training-selfies">
+    <h1>Training Selfies</h1>
+    <div class="carousel">
+      <div class="carousel-item" *ngFor="let selfie of selfies">
+        <img [src]="selfie.imageUrl" alt="Selfie">
+        <p>{{ selfie.caption }}</p>
+      </div>
+    </div>
+  </div>
+  

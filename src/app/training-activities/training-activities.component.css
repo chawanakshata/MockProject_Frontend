@@ -1,0 +1,93 @@
+.main-title {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 1.5em;
+  font-weight: 550;
+}
+
+.week-title {
+  font-size: 1.3em;
+  font-weight: 550;
+  margin: 24px 0 12px 0;   /* Remove left margin */
+  text-align: center;       /* Center the text */
+  width: 100%;  
+  color: #498500;
+}
+
+.week-row {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 3px solid #bbb;
+  scrollbar-color: #bbb #eee;
+  scrollbar-width: thin;
+}
+
+.activities-main-container {
+  padding: 24px;
+  padding-bottom: 60px;
+  background: #f9f9f9 !important;
+}
+
+.activities-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 24px;
+    justify-content: flex-start;
+  }
+  
+  /* .activity-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 20px 28px;
+    min-width: 260px;
+    max-width: 320px;
+    flex: 1 1 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  } */
+  .activity-card {
+    min-width: 240px;
+    max-width: 220px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* Center content horizontally */
+    text-align: center;
+    gap: 8px;
+    font-size: 1em;
+  }
+  
+  .activity-date {
+    font-weight: bold;
+    color: #222629;
+    font-size: 1.1em;
+  }
+  
+  .activity-desc {
+    font-size: 1.1em; 
+    color : #a72828;
+  }
+  
+  .activity-day {
+    color: #474b4f;
+    font-weight: 550;
+  }
+
+  /* .activity-action {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  } */
+  
+
