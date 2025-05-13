@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { API_ENDPOINTS } from '../api-endpoints';
 
 @Component({
   selector: 'app-training-team-selfies',
@@ -30,7 +31,7 @@ export class TrainingTeamSelfiesComponent implements OnInit {
 
   // This method runs automatically when TrainingTeamSelfies component is created and Fetches selfies from the API
   ngOnInit(): void {
-    this.http.get<any[]>('https://localhost:7085/api/TrainingSelfies')
+    this.http.get<any[]>(API_ENDPOINTS.TRAINING_TEAM_SELFIES)
       .subscribe(data => {
         this.selfies = data;
       });
