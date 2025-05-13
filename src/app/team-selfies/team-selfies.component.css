@@ -45,8 +45,9 @@ body, .main-content{
 }
 
 .add-photo-container {
-  margin-top: 16px;
-  margin-left: 24px;
+  margin: 16px auto 0 auto;
+  margin-bottom: 60px;
+  width: fit-content; 
 }
 
 .add-photo-btn {
@@ -102,7 +103,7 @@ body, .main-content{
 .selfie-carousel-container {
     max-width: 400px;
     margin: 40px auto;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
   }
   
   .carousel-item {
@@ -149,7 +150,7 @@ body, .main-content{
   }
 
   /* Style for the snackbar message */
-::ng-deep .photo-deleted-snackbar {
+::ng-deep .photo-snackbar {
   background: #222629 !important;  
   color: #fdfff9 !important;          
   font-weight: 500;
@@ -161,21 +162,21 @@ body, .main-content{
   align-items: center;
 }
 
-::ng-deep .photo-deleted-snackbar .mdc-button__ripple,
-::ng-deep .photo-deleted-snackbar .mdc-button__touch {
+::ng-deep .photo-snackbar .mdc-button__ripple,
+::ng-deep .photo-snackbar .mdc-button__touch {
   background: transparent !important;
   opacity: 0 !important;
 }
 
-::ng-deep .photo-deleted-snackbar .mat-mdc-button,
-::ng-deep .photo-deleted-snackbar .mat-mdc-button:hover,
-::ng-deep .photo-deleted-snackbar .mat-mdc-button:focus {
+::ng-deep .photo-snackbar .mat-mdc-button,
+::ng-deep .photo-snackbar .mat-mdc-button:hover,
+::ng-deep .photo-snackbar .mat-mdc-button:focus {
   background: #54870c !important;
   color: #e7e7e7 !important;
   box-shadow: none !important;
 }
 
-::ng-deep .photo-deleted-snackbar .mat-mdc-snack-bar-action {
+::ng-deep .photo-snackbar .mat-mdc-snack-bar-action {
   background: transparent !important;
 }
   

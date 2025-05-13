@@ -13,5 +13,4 @@ export const routes: Routes = [
   { path: 'training-team-selfies', component: TrainingTeamSelfiesComponent },
   { path: 'team-selfies', component: TeamSelfiesComponent },
   { path: '**', redirectTo: 'user-list' },
-  // Add valid route definitions here or remove this placeholder
 ];

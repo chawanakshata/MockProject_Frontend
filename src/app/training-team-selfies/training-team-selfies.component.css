@@ -8,17 +8,15 @@ body, .main-content{
   margin-bottom: 24px;
   font-size: 1.5em;
   font-weight: 550;
-
 }
 
  .selfie-carousel-container {
     max-width: 400px;
     margin: 40px auto;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     background: #f9f9f9 !important;
   }
 
-  
   .carousel-item {
     display: flex;
     flex-direction: column;

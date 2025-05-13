@@ -1,5 +1,5 @@
 body, .main-content {
-  padding-bottom: 50px; /* Adjust if your footer is taller */
+  padding-bottom: 50px; 
   
 }
 
@@ -8,13 +8,10 @@ body, .main-content {
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-  background-color: #f9f9f9;
-  
+  background-color: #f9f9f9; 
 }
 
-/* Card for each user */
 .user-card {
-  /* background: #ede8f5 !important; */
   background: #f9f9f9 !important;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -24,29 +21,15 @@ body, .main-content {
   flex-direction: column;
   gap: 20px;
   padding-bottom: 50px;
-  /* margin-bottom: 32px; */
   padding-left: 45px;
 }
 
-/* User content divided into two sections */
 .user-content {
   display: flex;
-
   flex-direction: row;
-
   gap: 20px;
-
-
 }
 
-/* Left section for profile info */
-/* .left-section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-} */
 .left-section {
   flex: 1 1 0;
   max-width: 60%;
@@ -68,54 +51,48 @@ body, .main-content {
 }
 
 mat-tab-group {
-  width: 100%; /* Make tab group fill the left section */
+  width: 100%; 
   font-size: 1.1rem;
 }
 
 
 .profile-picture {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  border: 2px solid #ddd;
-  /* flex-shrink: 0; */
+  border-radius: 50%;
+  border: 3px solid #4b4b4b;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .profile-header {
   display: flex;
-  flex-direction: row; /* Stack vertically */
-  align-items: flex-start;
-  gap: 24px;
-  margin-bottom: 32px;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 24px;
   
 }
 
-/* .profile-meta {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-} */
-
 .profile-pic-wrapper {
+  flex-shrink: 0;
   display: flex;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-info {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   
 }
 
 .profile-info h2 {
+  font-size: 2.2rem;
   margin: 0 0 8px 0;
-  font-size: 1.5rem;
-  color: #333;
+  line-height: 1.1;
+  word-break: break-word;
 }
 
 .profile-info p {
@@ -137,7 +114,6 @@ mat-tab-group {
   color: #5a9908;
 }
 
-/* Style for Update and Cancel buttons when editing a fact */
 .update-fact-btn {
   background: #5a871e;
   color: #000000;
@@ -190,13 +166,6 @@ mat-tab-group {
   box-shadow: 0 0 0 2px #e0f3c6;
 }
 
-/* Right section for gallery carousel */
-/* .right-section {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-} */
 .right-section {
   flex: 1 1 0;
   max-width: 50%;
@@ -205,24 +174,15 @@ mat-tab-group {
   justify-content: center;
 }
 
-/* .carousel {
-  margin-top: 10px;
-  overflow: hidden;
-  position: relative;
-
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-} */
 .carousel {
   margin-top: 10px;
-  overflow: visible; /* Allow dots to show outside the carousel */
+  overflow: visible; 
   position: relative;
   width: 100%;
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 40px; /* Add space for dots */
+  padding-bottom: 40px; 
 }
 
 .carousel-item {
@@ -235,10 +195,10 @@ mat-tab-group {
 }
 
 .carousel-image {
-  max-width: 100%; /* Ensure the image does not exceed the container width */
-  max-height: 100%; /* Ensure the image does not exceed the container height */
-  object-fit: cover; /* Maintain aspect ratio and fill the container */
-  border-radius: 8px; /* Optional: Add rounded corners */
+  max-width: 100%; 
+  max-height: 100%;
+  object-fit: cover; 
+  border-radius: 8px; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -266,7 +226,7 @@ mat-tab-group {
 }
 
 .facts-list {
-  margin-top: 24px; /* Space between profile and facts */
+  margin-top: 24px; 
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -279,23 +239,11 @@ mat-tab-group {
   gap: 8px;
 }
 
-
-/* .fact-item {
-  background: #f5f5f5;
-  border-radius: 6px;
-  padding: 8px 14px;
-  color: #444;
-  font-size: 1em;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-  width: 100%;
-  box-sizing: border-box;
-} */
 .fact-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 18px;
-  /* background: #61892f; */
   background: #dbdcd9;
   border-radius: 8px;
   margin-bottom: 12px;
@@ -328,7 +276,6 @@ mat-tab-group {
   background: #77b126;
 }
 
-/* Add to user-list.component.css */
 .edit-fact-input {
   margin-left: 8px;
   padding: 2px 6px;
@@ -350,4 +297,23 @@ mat-tab-group {
 .edit-fact-btn:hover {
   background: #ececec;
   border-radius: 4px;
+}
+
+@media (max-width: 700px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    text-align: center;
+  }
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+  }
+  .profile-info h2 {
+    font-size: 1.4rem;
+  }
+  .profile-info p {
+    font-size: 1rem;
+  }
 }

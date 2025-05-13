@@ -1,106 +1,4 @@
-
-  <!-- <div *ngIf="users$ | async as users">
-    <ng-container *ngIf="isArray(users); else singleUser">
-    
-      <div *ngFor="let user of users" class="user-card">
-        <div class="user-content">
-          <div class="left-section">
-
-            <div class="profile-header">
-              <div class="profile-pic-wrapper">
-                <img [src]="'https://localhost:7085' + user.profilePictureUrl" alt="Profile Picture" class="profile-picture" />
-              </div>
-              <div class="profile-info">
-                <h2>{{ user.name }}</h2>
-                <p>{{ user.bio }}</p>
-              </div>
-            </div>
-            <mat-tab-group>
-              <mat-tab label="Personal">
-                <div class="facts-list" *ngIf="getPersonalFacts(user.facts).length">
-                  <div class="fact-item" *ngFor="let fact of getPersonalFacts(user.facts)">
-                    {{ fact.fact }}
-                  </div>
-                </div>
-                <div *ngIf="!getPersonalFacts(user.facts).length">No personal facts.</div>
-              </mat-tab>
-              <mat-tab label="Professional">
-                <div class="facts-list" *ngIf="getProfessionalFacts(user.facts).length">
-                  <div class="fact-item" *ngFor="let fact of getProfessionalFacts(user.facts)">
-                    {{ fact.fact }}
-                  </div>
-                </div>
-                <div *ngIf="!getProfessionalFacts(user.facts).length">No professional facts.</div>
-              </mat-tab>
-            </mat-tab-group>
-          </div>
-          <div class="right-section">
-            <ngx-slick-carousel class="carousel" [config]="carouselConfig">
-              <div ngxSlickItem *ngFor="let image of user.gallery" class="carousel-item">
-                <img [src]="'https://localhost:7085' + image.imageUrl" alt="Gallery Image" class="carousel-image" />
-              </div>
-            </ngx-slick-carousel>
-          </div>
-        </div>
-      </div>
-    </ng-container>
-    <ng-template #singleUser>
-      <div class="user-card">
-        <div class="user-content">
-          <div class="left-section">
-      
-            <div class="profile-header">
-              <div class="profile-pic-wrapper">
-                <img [src]="'https://localhost:7085' + users.profilePictureUrl" alt="Profile Picture" class="profile-picture" />
-              </div>
-              <div class="profile-info">
-                <h2>{{ users.name }}</h2>
-                <p>{{ users.bio }}</p>
-              </div>
-            </div>
-            <mat-tab-group>
-              <mat-tab label="Personal">
-                <div class="facts-list" *ngIf="getPersonalFacts(users.facts).length">
-                  <div class="fact-item" *ngFor="let fact of getPersonalFacts(users.facts)">
-                    {{ fact.fact }}
-                  </div>
-                </div>
-                <div *ngIf="!getPersonalFacts(users.facts).length">No personal facts.</div>
-              </mat-tab>
-              <mat-tab label="Professional">
-                <div class="facts-list" *ngIf="getProfessionalFacts(users.facts).length">
-                  <div class="fact-item" *ngFor="let fact of getProfessionalFacts(users.facts)">
-                    {{ fact.fact }}
-                  </div>
-                </div>
-                <div *ngIf="!getProfessionalFacts(users.facts).length">No professional facts.</div>
-                <div class="add-fact-container">
-                  <input
-                    type="text"
-                    [(ngModel)]="newProfessionalFact[users.id]"
-                    placeholder="Add professional information"
-                    class="add-fact-input"
-                  />
-                  <button (click)="addProfessionalFact(users.id)" class="add-fact-btn">Add Information</button>
-                </div>
-              </mat-tab>
-            </mat-tab-group>
-          </div>
-          <div class="right-section">
-            <ngx-slick-carousel class="carousel" [config]="carouselConfig">
-              <div ngxSlickItem *ngFor="let image of users.gallery" class="carousel-item">
-                <img [src]="'https://localhost:7085' + image.imageUrl" alt="Gallery Image" class="carousel-image" />
-              </div>
-            </ngx-slick-carousel>
-          </div>
-        </div>
-      </div>
-    </ng-template>
-  </div> -->
-
-<!-- ----------------------------- -->
-
-<div *ngIf="usersArray.length > 0; else singleUser">
+<div *ngIf="usersArray.length > 0">
   <div *ngFor="let user of usersArray" class="user-card">
     <div class="user-content">
       <div class="left-section">
@@ -114,7 +12,125 @@
           </div>
         </div>
         <mat-tab-group>
-          <!-- For multiple users -->
+          <mat-tab label="Personal">
+            <div class="facts-list" *ngIf="getPersonalFacts(user.facts).length">
+              <div class="fact-item" *ngFor="let fact of getPersonalFacts(user.facts)">
+                <span *ngIf="!editingFactId || editingFactId !== fact.id">{{ fact.fact }}</span>  
+                <!-- Shows the fact text if you are not editing this fact. -->
+                <input
+                  *ngIf="editingFactId === fact.id"
+                  [(ngModel)]="editFactText"
+                  class="edit-fact-input"
+                  type="text"
+                />
+                <!-- Shows an input box if you are editing this fact -->
+                <button
+                  *ngIf="editingFactId !== fact.id"
+                  class="edit-fact-btn"
+                  (click)="startEditFact(fact)"
+                  title="Edit"
+                >
+                <!-- Shows the edit button (pencil icon) if you are not editing this fact. -->
+                  ✏️
+                </button>
+                <button
+                  *ngIf="editingFactId === fact.id"
+                  class="update-fact-btn"
+                  (click)="updateFact(user.id, fact)"
+                >
+                <!-- Shows the Update button if you are editing this fact. -->
+                  Update
+                </button>
+                <button
+                  *ngIf="editingFactId === fact.id"
+                  class="cancel-fact-btn"
+                  (click)="cancelEditFact()"
+                >
+                <!-- Shows the Cancel button if you are editing this fact. -->
+                  Cancel
+                </button>
+              </div>
+            </div>
+            <div *ngIf="!getPersonalFacts(user.facts).length">No personal information.</div>
+          </mat-tab>
+          <mat-tab label="Professional">
+            <div class="facts-list" *ngIf="getProfessionalFacts(user.facts).length">
+              <div class="fact-item" *ngFor="let fact of getProfessionalFacts(user.facts)">
+                <span *ngIf="!editingFactId || editingFactId !== fact.id">{{ fact.fact }}</span>
+                <input
+                  *ngIf="editingFactId === fact.id"
+                  [(ngModel)]="editFactText"
+                  class="edit-fact-input"
+                  type="text"
+                />
+                <button
+                  *ngIf="editingFactId !== fact.id"
+                  class="edit-fact-btn"
+                  (click)="startEditFact(fact)"
+                  title="Edit"
+                >
+                  ✏️
+                </button>
+                <button
+                  *ngIf="editingFactId === fact.id"
+                  class="update-fact-btn"
+                  (click)="updateFact(user.id, fact)"
+                  style="margin-left:8px"
+                >
+                  Update
+                </button>
+                <button
+                  *ngIf="editingFactId === fact.id"
+                  class="cancel-fact-btn"
+                  (click)="cancelEditFact()"
+                  style="margin-left:4px"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+            <div *ngIf="!getProfessionalFacts(user.facts).length">No professional information.</div>
+            <div class="add-fact-container">
+              <input
+                type="text"
+                [(ngModel)]="newProfessionalFact[user.id]"
+                placeholder="Add professional information"
+                class="add-fact-input"
+              />
+              <button (click)="addProfessionalFact(user.id)" class="add-fact-btn">Add Information</button>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      <div class="right-section">
+        <ngx-slick-carousel class="carousel" [config]="carouselConfig">
+          <div ngxSlickItem *ngFor="let image of user.gallery" class="carousel-item">
+            <img [src]="'https://localhost:7085' + image.imageUrl" alt="Gallery Image" class="carousel-image" />
+          </div>
+        </ngx-slick-carousel>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ---------------------------- -->
+
+<!-- <div *ngIf="usersArray.length > 0; else singleUser">
+  <div *ngFor="let user of usersArray" class="user-card">
+    <div class="user-content">
+      <div class="left-section">
+        <div class="profile-header">
+          <div class="profile-pic-wrapper">
+            <img [src]="'https://localhost:7085' + user.profilePictureUrl" alt="Profile Picture" class="profile-picture" />
+          </div>
+          <div class="profile-info">
+            <h2>{{ user.name }}</h2>
+            <p>{{ user.bio }}</p>
+          </div>
+        </div>
+        <mat-tab-group>
           <mat-tab label="Personal">
             <div class="facts-list" *ngIf="getPersonalFacts(user.facts).length">
               <div class="fact-item" *ngFor="let fact of getPersonalFacts(user.facts)">
@@ -151,31 +167,6 @@
             </div>
             <div *ngIf="!getPersonalFacts(user.facts).length">No personal facts.</div>
           </mat-tab>
-          <!-- <mat-tab label="Personal">
-            <div class="facts-list" *ngIf="getPersonalFacts(user.facts).length">
-              <div class="fact-item" *ngFor="let fact of getPersonalFacts(user.facts)">
-                {{ fact.fact }}
-              </div>
-            </div>
-            <div *ngIf="!getPersonalFacts(user.facts).length">No personal facts.</div>
-          </mat-tab> -->
-          <!-- <mat-tab label="Professional">
-            <div class="facts-list" *ngIf="getProfessionalFacts(user.facts).length">
-              <div class="fact-item" *ngFor="let fact of getProfessionalFacts(user.facts)">
-                {{ fact.fact }}
-              </div>
-            </div>
-            <div *ngIf="!getProfessionalFacts(user.facts).length">No professional facts.</div>
-            <div class="add-fact-container">
-              <input
-                type="text"
-                [(ngModel)]="newProfessionalFact[user.id]"
-                placeholder="Add professional information"
-                class="add-fact-input"
-              />
-              <button (click)="addProfessionalFact(user.id)" class="add-fact-btn">Add Information</button>
-            </div>
-          </mat-tab> -->
           <mat-tab label="Professional">
             <div class="facts-list" *ngIf="getProfessionalFacts(user.facts).length">
               <div class="fact-item" *ngFor="let fact of getProfessionalFacts(user.facts)">
@@ -235,9 +226,9 @@
       </div>
     </div>
   </div>
-</div>
+</div>  -->
 
-<ng-template #singleUser>
+<!-- <ng-template #singleUser>
   <div *ngIf="users" class="user-card">
     <div class="user-content">
       <div class="left-section">
@@ -252,7 +243,6 @@
         </div>
         <h3>Information about Me!</h3>
         <mat-tab-group>
-          <!-- For multiple users -->
           <mat-tab label="Personal">
             <div class="facts-list" *ngIf="getPersonalFacts(users.facts).length">
               <div class="fact-item" *ngFor="let fact of getPersonalFacts(users.facts)">
@@ -289,31 +279,6 @@
             </div>
             <div *ngIf="!getPersonalFacts(users.facts).length">No personal facts.</div>
           </mat-tab>
-          <!-- <mat-tab label="Personal">
-            <div class="facts-list" *ngIf="getPersonalFacts(users.facts).length">
-              <div class="fact-item" *ngFor="let fact of getPersonalFacts(users.facts)">
-                {{ fact.fact }}
-              </div>
-            </div>
-            <div *ngIf="!getPersonalFacts(users.facts).length">No personal facts.</div>
-          </mat-tab> -->
-          <!-- <mat-tab label="Professional">
-            <div class="facts-list" *ngIf="getProfessionalFacts(users.facts).length">
-              <div class="fact-item" *ngFor="let fact of getProfessionalFacts(users.facts)">
-                {{ fact.fact }}
-              </div>
-            </div>
-            <div *ngIf="!getProfessionalFacts(users.facts).length">No professional facts.</div>
-            <div class="add-fact-container">
-              <input
-                type="text"
-                [(ngModel)]="newProfessionalFact[users.id]"
-                placeholder="Add professional information"
-                class="add-fact-input"
-              />
-              <button (click)="addProfessionalFact(users.id)" class="add-fact-btn">Add Information</button>
-            </div>
-          </mat-tab> -->
           <mat-tab label="Professional">
             <div class="facts-list" *ngIf="getProfessionalFacts(users.facts).length">
               <div class="fact-item" *ngFor="let fact of getProfessionalFacts(users.facts)">
@@ -373,4 +338,9 @@
       </div>
     </div>
   </div>
-</ng-template>
+</ng-template> -->
+
+
+
+
+ 

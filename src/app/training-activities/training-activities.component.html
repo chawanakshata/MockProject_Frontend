@@ -1,25 +1,4 @@
-<!-- 
-  <div class="activities-main-container">
-    <h2 class="main-title">Training Activities</h2>
-    <div *ngFor="let week of activitiesByWeek">
-      <div class="week-title">Week {{ week[0] }}</div>
-      <div class="week-row">
-        <div class="activity-card" *ngFor="let activity of week[1]">
-          <div class="activity-date">
-            {{ activity.date | date: 'MMMM d' }}
-          </div>
-          <div class="activity-day">
-            Day: {{ activity.dayNumber }}
-          </div>
-          <div class="activity-desc">
-            {{ activity.activity }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-  <div class="activities-main-container">
+ <div class="activities-main-container">
     <h2 class="main-title">Training Activities</h2>
     <div *ngFor="let week of activitiesByWeek">
       <div class="week-title">Week {{ week[0] }}</div>
