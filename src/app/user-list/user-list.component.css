@@ -236,7 +236,7 @@ mat-tab-group {
 .fact-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 .fact-item {
@@ -248,6 +248,11 @@ mat-tab-group {
   border-radius: 8px;
   margin-bottom: 12px;
   color: #000;
+}
+
+.fact-item button {
+  margin-left: 0px;
+  margin-right: 1px;
 }
 
 .add-fact-container {
@@ -281,12 +286,31 @@ mat-tab-group {
   padding: 2px 6px;
 }
 
-.edit-fact-btn, .update-fact-btn, .cancel-fact-btn {
+.edit-fact-btn, .update-fact-btn, .cancel-fact-btn, .delete-fact-btn {
   background: none;
   border: none;
   cursor: pointer;
   padding: 2px 2px;
   transition: background 0.2s;
+  margin-right: 2px;
+}
+
+.edit-fact-btn,
+.delete-fact-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 2px;
+  font-size: 1.1em;
+  margin: 0;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+
+.edit-fact-btn:hover,
+.delete-fact-btn:hover {
+  background: #ececec;
+  border-radius: 4px;
 }
 
 .update-fact-btn, .cancel-fact-btn{
@@ -297,6 +321,36 @@ mat-tab-group {
 .edit-fact-btn:hover {
   background: #ececec;
   border-radius: 4px;
+}
+
+::ng-deep .photo-snackbar {
+  background: #222629 !important;  
+  color: #fdfff9 !important;          
+  font-weight: 500;
+  font-size: 1em;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  opacity: 1 !important;
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .photo-snackbar .mdc-button__ripple,
+::ng-deep .photo-snackbar .mdc-button__touch {
+  background: transparent !important;
+  opacity: 0 !important;
+}
+
+::ng-deep .photo-snackbar .mat-mdc-button,
+::ng-deep .photo-snackbar .mat-mdc-button:hover,
+::ng-deep .photo-snackbar .mat-mdc-button:focus {
+  background: #54870c !important;
+  color: #e7e7e7 !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .photo-snackbar .mat-mdc-snack-bar-action {
+  background: transparent !important;
 }
 
 @media (max-width: 700px) {
@@ -315,5 +369,15 @@ mat-tab-group {
   }
   .profile-info p {
     font-size: 1rem;
+  }
+  .fact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .add-fact-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
   }
 }
