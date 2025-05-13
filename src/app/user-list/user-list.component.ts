@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { SlickCarouselModule } from 'ngx-slick-carousel'; 
 import { MatTabsModule } from '@angular/material/tabs'; 
 import { FormsModule } from '@angular/forms';
+import { API_ENDPOINTS } from '../api-endpoints';
 
 @Component({
   selector: 'app-user-list',
@@ -29,7 +30,7 @@ export class UserListComponent implements OnInit {
   };
   errorMessage: string = '';
 
-  private apiUrl = 'https://localhost:7085/api/Users';
+  private apiUrl = API_ENDPOINTS.USERS; 
 
   newProfessionalFact: { [userId: number]: string } = {};
   usersArray: any[] = [];  
@@ -82,7 +83,7 @@ export class UserListComponent implements OnInit {
       userId: userId
     };
   
-    this.http.post<any>('https://localhost:7085/api/Users/facts', payload).subscribe({
+    this.http.post<any>(API_ENDPOINTS.USER_FACTS, payload).subscribe({
       next: (newFact) => {  //Finds the user in the users array and adds the new fact to their facts list.
         const user = this.usersArray.find((u: any) => u.id === userId);
         if (user && user.facts) {
@@ -119,7 +120,7 @@ export class UserListComponent implements OnInit {
       type: fact.type 
     };
 
-    this.http.put(`https://localhost:7085/api/Users/facts/${fact.id}`, payload).subscribe({
+    this.http.put(API_ENDPOINTS.USER_FACTS_UPDATE(fact.id), payload).subscribe({
       next: () => {
         // Finds the user in the users array and updates the fact text in the local data, so the UI shows the new value.
         const user = this.usersArray.find((u: any) => u.id === userId);
