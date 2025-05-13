@@ -5,12 +5,14 @@ import { Observable } from 'rxjs';
 import { SlickCarouselModule } from 'ngx-slick-carousel'; 
 import { MatTabsModule } from '@angular/material/tabs'; 
 import { FormsModule } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { API_ENDPOINTS } from '../api-endpoints';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [CommonModule, SlickCarouselModule, MatTabsModule, FormsModule],
+  imports: [CommonModule, SlickCarouselModule, MatTabsModule, FormsModule, MatSnackBarModule],
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
@@ -39,7 +41,7 @@ export class UserListComponent implements OnInit {
   editingFactId: number | null = null;
   editFactText: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -139,4 +141,26 @@ export class UserListComponent implements OnInit {
       }
     });
   }
+
+  deleteFact(userId: number, factId: number) {
+  if (confirm('Are you sure you want to delete this Information?')) {
+    this.http.delete(API_ENDPOINTS.USER_FACTS_DELETE(factId)).subscribe({
+      next: () => {
+        // Remove the fact from the local array for the correct user
+        const user = this.usersArray.find((u: any) => u.id === userId);
+        if (user && user.facts) {
+          user.facts = user.facts.filter((f: any) => f.id !== factId);
+        }
+        this.snackBar.open('Information deleted successfully', 'Close', {
+              duration: 4000,
+              verticalPosition: 'bottom',
+              panelClass: 'photo-snackbar'
+            });
+      },
+      error: () => {
+        alert('Failed to delete fact.');
+      }
+    });
+  }
+}
 }
