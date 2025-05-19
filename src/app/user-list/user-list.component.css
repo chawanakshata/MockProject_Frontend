@@ -3,41 +3,46 @@ body, .main-content {
   
 }
 
-.user-list-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  background-color: #f9f9f9; 
+ .user-list-container, .main-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 16px;
 }
 
-.user-card {
+ .user-card {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
   background: #f9f9f9 !important;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding-bottom: 50px;
-  padding-left: 45px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+  padding: 10px 10px;
+  margin: 0 0;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-.user-content {
+ .user-content {
   display: flex;
   flex-direction: row;
   gap: 20px;
+  width: 100%;
+  justify-content: center;
 }
 
 .left-section {
   flex: 1 1 0;
-  max-width: 60%;
+  max-width: 70%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
+  padding: 30px;
+  padding-left: 6%;
 }
 
 .left-section h3 {
@@ -114,6 +119,30 @@ mat-tab-group {
   color: #5a9908;
 }
 
+::ng-deep .mat-mdc-tab .mdc-tab__text-label {
+  color: #111 !important;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+
+/* Tab label text color and background on hover */
+::ng-deep .mat-mdc-tab .mdc-tab__text-label:hover {
+  color: #222629 !important;      /* Green text */
+  background: transparent !important; /* No background color */
+}
+
+/* Active tab underline color */
+::ng-deep .mat-mdc-tab-group .mdc-tab-indicator__content--underline {
+  border-color: #558e00 !important; 
+  background-color: #111 !important; 
+}
+
+::ng-deep .mat-mdc-tab.mdc-tab--active {
+  background-color: #f7f7f7 !important; 
+  color: #fff !important;              
+}
+
 .update-fact-btn {
   background: #5a871e;
   color: #000000;
@@ -168,7 +197,7 @@ mat-tab-group {
 
 .right-section {
   flex: 1 1 0;
-  max-width: 50%;
+  max-width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -191,7 +220,7 @@ mat-tab-group {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px; 
+  height: 450px; 
 }
 
 .carousel-image {
@@ -201,6 +230,7 @@ mat-tab-group {
   border-radius: 8px; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 .slick-dots {
   position: absolute;
@@ -213,6 +243,7 @@ mat-tab-group {
   pointer-events: auto;
   background: transparent;
 }
+
 
 .slick-dots li button:before {
   font-size: 16px;
@@ -236,7 +267,7 @@ mat-tab-group {
 .fact-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 .fact-item {
@@ -248,6 +279,11 @@ mat-tab-group {
   border-radius: 8px;
   margin-bottom: 12px;
   color: #000;
+}
+
+.fact-item button {
+  margin-left: 0px;
+  margin-right: 1px;
 }
 
 .add-fact-container {
@@ -281,12 +317,31 @@ mat-tab-group {
   padding: 2px 6px;
 }
 
-.edit-fact-btn, .update-fact-btn, .cancel-fact-btn {
+.edit-fact-btn, .update-fact-btn, .cancel-fact-btn, .delete-fact-btn {
   background: none;
   border: none;
   cursor: pointer;
   padding: 2px 2px;
   transition: background 0.2s;
+  margin-right: 2px;
+}
+
+.edit-fact-btn,
+.delete-fact-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 2px;
+  font-size: 1.1em;
+  margin: 0;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+
+.edit-fact-btn:hover,
+.delete-fact-btn:hover {
+  background: #ececec;
+  border-radius: 4px;
 }
 
 .update-fact-btn, .cancel-fact-btn{
@@ -299,21 +354,203 @@ mat-tab-group {
   border-radius: 4px;
 }
 
+
+::ng-deep .photo-snackbar .mat-mdc-button {
+  color: #fff !important;
+  background: transparent !important;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+::ng-deep .photo-snackbar .mat-mdc-button:hover,
+::ng-deep .photo-snackbar .mat-mdc-button:focus {
+  background: #559201 !important;
+  color: #fff !important;
+}
+
+
+::ng-deep .photo-snackbar,
+::ng-deep .photo-snackbar .mdc-snackbar__surface {
+  background: #222629 !important;
+  color: #fff !important;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 450px;
+}
+
+@media (min-width: 1400px) {
+  .carousel {
+    max-width: 520px;
+    min-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 48px;
+  }
+  .carousel-item {
+    height: 600px;
+  }
+  .carousel-image {
+    max-width: 100%;
+    max-height: 600px;
+    min-height: 480px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.13);
+  }
+
+  .user-card,
+  .fact-item,
+  .profile-info h2,
+  .profile-info p,
+  .left-section h3,
+  .left-section h2,
+  .left-section p,
+  .add-fact-btn,
+  .add-fact-input,
+  .mat-tab-group,
+  .mat-tab-label-content {
+    font-size: 1.6rem !important;
+  }
+
+.user-content{
+  padding: 0px;
+}
+
+.left-section{
+  margin-top: 4%;
+  margin-bottom: 4%;
+  padding-left: 5%;
+  gap: 3%;
+  padding-top: 0px;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #4b4b4b;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+}
+}
+
+@media (min-width: 1300px){
+  .left-section{
+  margin-top: 4%;
+  margin-bottom: 4%;
+  padding-left: 5%;
+  gap: 4%;
+}
+
+  .user-card,
+  .fact-item,
+  .profile-info h2,
+  .profile-info p,
+  .left-section h3,
+  .left-section h2,
+  .left-section p,
+  .add-fact-btn,
+  .add-fact-input,
+  .mat-tab-group,
+  .mat-tab-label-content {
+    font-size: 1.6rem !important;
+  }
+
+::ng-deep .mat-mdc-tab .mdc-tab__text-label {
+  font-size: 1.7rem !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.profile-info h2{
+  font-size: 2.1rem !important;
+}
+
+.profile-info p{
+  font-size: 2rem !important;
+}
+
+  .carousel {
+    max-width: 500px;
+    min-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 48px;
+  }
+  .carousel-item {
+    height: 580px;
+  }
+  .carousel-image {
+    max-width: 100%;
+    max-height: 600px;
+    min-height: 480px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.13);
+  }
+
+
+}
+
 @media (max-width: 700px) {
+  .user-content {
+    flex-direction: column !important;
+    gap: 18px;
+    padding: 20px;
+  }
+  .left-section,
+  .right-section {
+    max-width: 100%;
+    width: 100%;
+    padding: 8px 0;
+    margin: 0;
+  }
   .profile-header {
-    flex-direction: column;
+    display: flex;
     align-items: center;
-    gap: 1px;
+    justify-content: center;
+    gap: 2%px;
     text-align: center;
   }
   .profile-picture {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
   }
   .profile-info h2 {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
   }
   .profile-info p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+  .fact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .add-fact-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .right-section {
+    margin-top: 12px;
+  }
+  .carousel,
+  .carousel-item,
+  .carousel-image {
+    max-width: 100%;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .carousel {
+    max-width: 450px;
+
   }
 }

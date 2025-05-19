@@ -41,18 +41,19 @@
   transition: background 0.2s;
 }
 
-.footer {
+ .footer {
   width: 100%;
   text-align: center;
-  padding: 16px 0;
+  padding: 20px 0 24px 0;
   background: #222629;
   color: #fdfff9;
   font-size: 1.1em;
   border-top: 1px solid #e0e0e0;
-  position: static; 
-  left: unset;
-  bottom: unset;
-  z-index: unset;
+  position: static;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+
 }
 
 .footer-icon {
@@ -66,7 +67,6 @@
   margin-right: 4px;
 }
 
-/* ...existing code... */
 
 .menu-toggle {
   display: none;
@@ -90,7 +90,20 @@
   transition: 0.3s;
 }
 
-/* Responsive styles */
+
+@media (min-width: 1300px){
+  .nav-list li a{
+     font-size: 1.55em;
+  }
+
+  .footer {
+    font-size: 1.55em;
+    padding: 20px 0 14px 0;
+    position: static;
+  }
+  
+}
+
 @media (max-width: 700px) {
   .nav-list {
     flex-direction: column;
@@ -115,9 +128,9 @@
   .navbar {
     position: relative;
     background: #222629;
-    height: 72px;         /* Set your desired height */
+    height: 72px;        
     display: flex;
-    align-items: center;  /* Vertically center content */
+    align-items: center;  
     box-shadow: 0 2px 4px rgba(0,0,0,0.03);
     position: sticky;
     top: 0;
@@ -131,13 +144,21 @@
     top: 12px;
     z-index: 1100;
   }
-}
 
-/* Optional: Hide menu after click on link (for better UX on mobile) */
-@media (max-width: 700px) {
   .nav-list li a {
     display: block;
     width: 100%;
     padding: 12px 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .footer {
+    font-size: 1.15em;
+    padding: 20px 0 14px 0;
+    position: static;
+  }
+  .main-content, .user-list-container {
+    padding-bottom: 30px;
   }
 }

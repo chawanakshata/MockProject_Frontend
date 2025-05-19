@@ -101,9 +101,10 @@ body, .main-content{
 }
 
 .selfie-carousel-container {
-    max-width: 400px;
+    max-width: 30%;
+    max-height: 50%;
     margin: 40px auto;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
   }
   
   .carousel-item {
@@ -115,8 +116,8 @@ body, .main-content{
   
   .carousel-image {
     width: 100%;
-    max-width: 500px;
-    height: 500px;
+    max-width: 90%;
+    height: 50%;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -149,34 +150,38 @@ body, .main-content{
     background: #77b126;
   }
 
-  /* Style for the snackbar message */
-::ng-deep .photo-snackbar {
-  background: #222629 !important;  
-  color: #fdfff9 !important;          
-  font-weight: 500;
-  font-size: 1em;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  opacity: 1 !important;
-  display: flex;
-  align-items: center;
-}
 
-::ng-deep .photo-snackbar .mdc-button__ripple,
-::ng-deep .photo-snackbar .mdc-button__touch {
+::ng-deep .photo-snackbar .mat-mdc-button {
+  color: #fff !important;
   background: transparent !important;
-  opacity: 0 !important;
+  border-radius: 4px;
+  transition: background 0.2s;
 }
 
-::ng-deep .photo-snackbar .mat-mdc-button,
 ::ng-deep .photo-snackbar .mat-mdc-button:hover,
 ::ng-deep .photo-snackbar .mat-mdc-button:focus {
-  background: #54870c !important;
-  color: #e7e7e7 !important;
-  box-shadow: none !important;
+  background: #559201 !important;
+  color: #fff !important;
 }
 
-::ng-deep .photo-snackbar .mat-mdc-snack-bar-action {
-  background: transparent !important;
+
+::ng-deep .photo-snackbar,
+::ng-deep .photo-snackbar .mdc-snackbar__surface {
+  background: #111 !important;
+  color: #fff !important;
 }
-  
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+ 
+}
+
+::ng-deep .slick-dots {
+  position: relative !important;
+  bottom: 0px !important;
+  margin-top: 1px !important;
+}
+

@@ -1,5 +1,10 @@
 <h2 class="main-title">Takeda Team</h2>
 
+<div *ngIf="isLoading" class="loader-container">
+  <mat-spinner diameter="60" color="warn"></mat-spinner>
+</div>
+
+<div *ngIf="!isLoading">
 <div class="selfie-carousel-container">
   <ngx-slick-carousel
     class="carousel"
@@ -8,7 +13,8 @@
   >
     <div ngxSlickItem *ngFor="let selfie of selfies" class="carousel-item">
       <img
-        [src]="'https://localhost:7085' + selfie.imageUrl"
+        *ngIf="selfie.base64Image"
+        [src]="'data:image/jpeg;base64,' + selfie.base64Image"
         alt="Team Selfie"
         class="carousel-image"
       />
@@ -26,7 +32,7 @@
     Delete Photo
   </button>
 </div>
-
+</div>
 <div class="add-photo-container">
   <p class="sub-title">Add Team Member :</p>
   <input
@@ -35,6 +41,14 @@
     placeholder="Enter Team Member's Name"
     class="name-input"
   />
+  <!-- To actually open the file picker dialog, trigger a click event on the file input -->
+  <button
+    class="choose-file-btn"
+    (click)="fileInput.click()" 
+    type="button"
+  >
+    Choose File
+  </button>
   <input
     #fileInput
     type="file"
@@ -42,18 +56,11 @@
     style="display:none"
     (change)="onFileSelected($event)"
   />
-  <button
-    class="choose-file-btn"
-    (click)="fileInput.click()"
-    type="button"
-  >
-    Choose File
-  </button>
+  <!-- Span only appears if a file has been selected  -->
   <span *ngIf="selectedFileName" class="file-name">{{ selectedFileName }}</span>
   <button
     class="add-photo-btn"
     [disabled]="!selectedFile || !teamMemberName.trim()"
-    
     (click)="addSelfie()"
   >
     Add Photo

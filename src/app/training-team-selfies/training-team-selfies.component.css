@@ -1,6 +1,5 @@
 body, .main-content{
-  padding-bottom: 40px; 
-  
+  padding-bottom: 0px; 
 }
 
 .main-title {
@@ -11,7 +10,8 @@ body, .main-content{
 }
 
  .selfie-carousel-container {
-    max-width: 400px;
+    max-width: 30%;
+    max-height: 50%;
     margin: 40px auto;
     padding-bottom: 30px;
     background: #f9f9f9 !important;
@@ -26,8 +26,8 @@ body, .main-content{
   
   .carousel-image {
     width: 100%;
-    max-width: 400px;
-    height: 500px;
+    max-width: 90%;
+    height: 50%;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -40,3 +40,20 @@ body, .main-content{
     color: #c62e2e;
     text-align: center;
   }
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 260px;
+ 
+}
+
+::ng-deep .slick-dots {
+  position: relative !important;
+  bottom: 0px !important;
+  margin-top: 1px !important;
+}
+ 
+
+
